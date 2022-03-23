@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "winmodoro (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "winmodoro (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
