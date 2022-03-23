@@ -26,7 +26,8 @@ namespace winmodoro
     /// </summary>
     public sealed partial class MainWindow : Window
     {
-        private AppWindow _appWindow;   
+        private AppWindow _appWindow;
+        DispatcherTimer dispatcherTimer;
         public MainWindow()
         {
             this.InitializeComponent();
@@ -44,7 +45,6 @@ namespace winmodoro
             var windowId = Microsoft.UI.Win32Interop.GetWindowIdFromWindow(hWnd);
             var appWindow = Microsoft.UI.Windowing.AppWindow.GetFromWindowId(windowId);
             appWindow.Resize(new Windows.Graphics.SizeInt32 { Width = 300, Height = 400 });
-
         }
 
         //private void myButton_Click(object sender, RoutedEventArgs e)
@@ -70,7 +70,24 @@ namespace winmodoro
 
         private void startBtn_Click(object sender, RoutedEventArgs e)
         {
+            //displayTime.Text = $"{focusTime.Value} minutes";
+            dispatcherTimer = new DispatcherTimer();
+            dispatcherTimer.Tick += dispatcherTimer_Tick;
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
 
+            dispatcherTimer.Start();
+
+        }
+
+        void dispatcherTimer_Tick(object sender, object e)
+        {
+            
+            focusTime.Value--;
+            displayTime.Text = $"{focusTime.Value} minutes";
+            if (focusTime.Value == 0)
+            {
+                dispatcherTimer.Stop();
+            }
         }
 
     }

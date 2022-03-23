@@ -49,41 +49,6 @@
         </Grid>
     </Grid>
 
-    <!--<Grid x:Name="AppTitleBar" 
-      Margin="0,0,0,0">
-        <TextBlock x:Name="AppTitleTextBlock" Text="App title"
-               TextWrapping="NoWrap"
-               Style="{StaticResource CaptionTextBlockStyle}" 
-               VerticalAlignment="Top"
-               HorizontalAlignment="Left"
-               Margin="0,0,0,0"/>
-    </Grid>-->
-
-    <!--<Grid Width="Auto" Height="Auto" ColumnDefinitions="Auto" RowDefinitions ="Auto, Auto, *,*" HorizontalAlignment="Center"
-            Background="{ThemeResource AcrylicBackgroundFillColorDefaultBrush}">
-        <Grid Grid.Row="0" Margin="5">
-            <TextBlock x:Name="title" FontSize="20" HorizontalAlignment="Center">Winmodoro 🍅</TextBlock>
-        </Grid>
-        <Grid Grid.Row="1" Margin="5">
-            <NumberBox
-                AllowFocusOnInteraction="False"
-                x:Name="focusTime"
-                Header="Enter focus time (minutes):"
-                Value="30"
-                SpinButtonPlacementMode="Inline"
-                SmallChange="15"
-                LargeChange="15"
-                HorizontalAlignment="Center"
-                    
-                />
-        </Grid>
-        <Grid Grid.Row="2" Margin="5">
-            <Button x:Name="startBtn" Click="startBtn_Click" HorizontalAlignment="Center">▶️ Start</Button>
-        </Grid>
-        <Grid Grid.Row="3" Margin="5">
-            <TextBlock x:Name="displayTime" HorizontalAlignment="Center">0 Seconds</TextBlock>
-        </Grid>
-    </Grid>-->
     <!--<Button x:Name="myButton" Click="myButton_Click">Click Me</Button>-->
         
 
