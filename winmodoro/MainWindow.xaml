@@ -7,14 +7,14 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource AcrylicBackgroundFillColorDefaultBrush}">
+    <Grid>
 
         <Grid.RowDefinitions>
             <RowDefinition Height="32"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Grid x:Name="AppTitleBar" Margin="0,0,0,0" HorizontalAlignment="Stretch" Background="Transparent">
+        <Grid x:Name="AppTitleBar" Margin="0,0,0,0" HorizontalAlignment="Stretch">
             <TextBlock x:Name="AppTitle" Text="🍅 Winmodoro"
                     HorizontalAlignment="Left" 
                     TextWrapping="NoWrap"
@@ -23,10 +23,20 @@
                      />
         </Grid>
         
-        <NavigationView Grid.Row="1" Background="Transparent">
+        <NavigationView Grid.Row="1">
             <!-- Page content -->
-            <Grid Width="Auto" Height="Auto" ColumnDefinitions="Auto" RowDefinitions ="Auto, Auto, *,*" HorizontalAlignment="Center" VerticalAlignment="Center"
-            >
+            <Grid Width="Auto" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
                 <Grid Grid.Row="0" Margin="5">
                     <TextBlock x:Name="title" FontSize="20" HorizontalAlignment="Center">Winmodoro 🍅</TextBlock>
                 </Grid>
@@ -44,8 +54,8 @@
                     />
                 </Grid>
                 <Grid Grid.Row="2" Margin="5">
-                    <Button x:Name="startBtn" Click="startBtn_Click" HorizontalAlignment="Center" Visibility="Visible">▶️ Start</Button>
-                    <Button x:Name="stopBtn" Click="stopBtn_Click" HorizontalAlignment="Center" Visibility="Collapsed">⏹️ Stop</Button>
+                    <Button x:Name="startBtn" Click="StartBtn_Click" HorizontalAlignment="Center" Visibility="Visible">▶️ Start</Button>
+                    <Button x:Name="stopBtn" Click="StopBtn_Click" HorizontalAlignment="Center" Visibility="Collapsed">⏹️ Stop</Button>
                 </Grid>
                 <Grid Grid.Row="3" Margin="5">
                     <TextBlock x:Name="displayTime" HorizontalAlignment="Center" Visibility="Collapsed" FontSize="20"></TextBlock>
