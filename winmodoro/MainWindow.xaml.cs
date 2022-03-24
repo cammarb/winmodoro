@@ -35,7 +35,6 @@ namespace winmodoro
             // Hide default title bar.
             ExtendsContentIntoTitleBar = true;
             SetTitleBar(AppTitleBar);
-            //this.Title = "Winmodoro";
 
             // For fullscreen
             //_appWindow = GetAppWindowForCurrentWindow();
@@ -44,7 +43,7 @@ namespace winmodoro
             IntPtr hWnd = WinRT.Interop.WindowNative.GetWindowHandle(this);
             var windowId = Microsoft.UI.Win32Interop.GetWindowIdFromWindow(hWnd);
             var appWindow = Microsoft.UI.Windowing.AppWindow.GetFromWindowId(windowId);
-            appWindow.Resize(new Windows.Graphics.SizeInt32 { Width = 300, Height = 400 });
+            appWindow.Resize(new Windows.Graphics.SizeInt32 { Width = 400, Height = 400 });
         }
 
         //private void myButton_Click(object sender, RoutedEventArgs e)
@@ -70,24 +69,41 @@ namespace winmodoro
 
         private void startBtn_Click(object sender, RoutedEventArgs e)
         {
-            //displayTime.Text = $"{focusTime.Value} minutes";
+             //displayTime.Text = $"{focusTime.Value} minutes";
             dispatcherTimer = new DispatcherTimer();
             dispatcherTimer.Tick += dispatcherTimer_Tick;
             dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
 
             dispatcherTimer.Start();
 
+            // Show Stop button and hide Start button when timer starts
+            startBtn.Visibility = Visibility.Collapsed;
+            stopBtn.Visibility = Visibility.Visible;
+            // Hide NumberBox and show display time
+            focusTime.Visibility = Visibility.Collapsed;
+            displayTime.Visibility = Visibility.Visible;
         }
 
         void dispatcherTimer_Tick(object sender, object e)
         {
             
-            focusTime.Value--;
             displayTime.Text = $"{focusTime.Value} minutes";
+            focusTime.Value--;
             if (focusTime.Value == 0)
             {
                 dispatcherTimer.Stop();
             }
+        }
+
+        private void stopBtn_Click(object sender, RoutedEventArgs e)
+        {
+            dispatcherTimer.Stop();
+            focusTime.Value = 30;
+            displayTime.Text = $"{focusTime.Value} minutes";
+            startBtn.Visibility = Visibility.Visible;
+            stopBtn.Visibility = Visibility.Collapsed;
+            focusTime.Visibility = Visibility.Visible;
+            displayTime.Visibility = Visibility.Collapsed;
         }
 
     }
