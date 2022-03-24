@@ -67,11 +67,11 @@ namespace winmodoro
             return AppWindow.GetFromWindowId(myWndId);
         }
 
-        private void startBtn_Click(object sender, RoutedEventArgs e)
+        private void StartBtn_Click(object sender, RoutedEventArgs e)
         {
              //displayTime.Text = $"{focusTime.Value} minutes";
             dispatcherTimer = new DispatcherTimer();
-            dispatcherTimer.Tick += dispatcherTimer_Tick;
+            dispatcherTimer.Tick += DispatcherTimer_Tick;
             dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
 
             dispatcherTimer.Start();
@@ -84,7 +84,7 @@ namespace winmodoro
             displayTime.Visibility = Visibility.Visible;
         }
 
-        void dispatcherTimer_Tick(object sender, object e)
+        void DispatcherTimer_Tick(object sender, object e)
         {
             
             displayTime.Text = $"{focusTime.Value} minutes";
@@ -95,7 +95,7 @@ namespace winmodoro
             }
         }
 
-        private void stopBtn_Click(object sender, RoutedEventArgs e)
+        private void StopBtn_Click(object sender, RoutedEventArgs e)
         {
             dispatcherTimer.Stop();
             focusTime.Value = 30;
