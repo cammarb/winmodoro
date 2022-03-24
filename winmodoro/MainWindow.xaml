@@ -7,28 +7,31 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="300" Height="400" Background="{ThemeResource AcrylicBackgroundFillColorDefaultBrush}">
-        <Border x:Name="AppTitleBar"
-                IsHitTestVisible="True"
-                VerticalAlignment="Top"
-                Background="Transparent"
-                Height="32"
-                Margin="0,0,0,0" HorizontalAlignment="Stretch">
-            <StackPanel Orientation="Horizontal" Background="Transparent">
-                <TextBlock x:Name="AppTitle"
-                    Text="🍅 Winmodoro"
+    <Grid Background="{ThemeResource AcrylicBackgroundFillColorDefaultBrush}">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid x:Name="AppTitleBar" Margin="0,0,0,0" HorizontalAlignment="Stretch" Background="Transparent">
+            <TextBlock x:Name="AppTitle" Text="🍅 Winmodoro"
+                    HorizontalAlignment="Left" 
+                    TextWrapping="NoWrap"
                     VerticalAlignment="Center"
                     Margin="15,0,0,0"
-                    Style="{StaticResource CaptionTextBlockStyle}" />
-            </StackPanel>
-        </Border>
-        <Grid Width="Auto" Height="Auto" ColumnDefinitions="Auto" RowDefinitions ="Auto, Auto, *,*" HorizontalAlignment="Center" VerticalAlignment="Center"
-            Background="Transparent">
-            <Grid Grid.Row="0" Margin="5">
-                <TextBlock x:Name="title" FontSize="20" HorizontalAlignment="Center">Winmodoro 🍅</TextBlock>
-            </Grid>
-            <Grid Grid.Row="1" Margin="5">
-                <NumberBox
+                     />
+        </Grid>
+        
+        <NavigationView Grid.Row="1" Background="Transparent">
+            <!-- Page content -->
+            <Grid Width="Auto" Height="Auto" ColumnDefinitions="Auto" RowDefinitions ="Auto, Auto, *,*" HorizontalAlignment="Center" VerticalAlignment="Center"
+            >
+                <Grid Grid.Row="0" Margin="5">
+                    <TextBlock x:Name="title" FontSize="20" HorizontalAlignment="Center">Winmodoro 🍅</TextBlock>
+                </Grid>
+                <Grid Grid.Row="1" Margin="5">
+                    <NumberBox
                     AllowFocusOnInteraction="False"
                     x:Name="focusTime"
                     Header="Enter focus time (minutes):"
@@ -37,16 +40,18 @@
                     SmallChange="15"
                     LargeChange="15"
                     HorizontalAlignment="Center"
-                    
+                    Visibility="Visible"
                     />
+                </Grid>
+                <Grid Grid.Row="2" Margin="5">
+                    <Button x:Name="startBtn" Click="startBtn_Click" HorizontalAlignment="Center" Visibility="Visible">▶️ Start</Button>
+                    <Button x:Name="stopBtn" Click="stopBtn_Click" HorizontalAlignment="Center" Visibility="Collapsed">⏹️ Stop</Button>
+                </Grid>
+                <Grid Grid.Row="3" Margin="5">
+                    <TextBlock x:Name="displayTime" HorizontalAlignment="Center" Visibility="Collapsed" FontSize="20"></TextBlock>
+                </Grid>
             </Grid>
-            <Grid Grid.Row="2" Margin="5">
-                <Button x:Name="startBtn" Click="startBtn_Click" HorizontalAlignment="Center">▶️ Start</Button>
-            </Grid>
-            <Grid Grid.Row="3" Margin="5">
-                <TextBlock x:Name="displayTime" HorizontalAlignment="Center">0 Seconds</TextBlock>
-            </Grid>
-        </Grid>
+        </NavigationView>
     </Grid>
 
     <!--<Button x:Name="myButton" Click="myButton_Click">Click Me</Button>-->
