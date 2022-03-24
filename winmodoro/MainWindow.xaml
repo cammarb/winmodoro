@@ -22,8 +22,8 @@
                     Margin="15,0,0,0"
                      />
         </Grid>
-        
-        <NavigationView Grid.Row="1">
+
+        <NavigationView Grid.Row="1" PaneDisplayMode="LeftCompact">
             <!-- Page content -->
             <Grid Width="Auto" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Grid.RowDefinitions>
@@ -40,7 +40,7 @@
                 <Grid Grid.Row="0" Margin="5">
                     <TextBlock x:Name="title" FontSize="20" HorizontalAlignment="Center">Winmodoro 🍅</TextBlock>
                 </Grid>
-                <Grid Grid.Row="1" Margin="5">
+                <Grid Grid.Row="1" Margin="5" Height="80">
                     <NumberBox
                     AllowFocusOnInteraction="False"
                     x:Name="focusTime"
@@ -50,15 +50,17 @@
                     SmallChange="15"
                     LargeChange="15"
                     HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
                     Visibility="Visible"
                     />
+                    <TextBlock x:Name="displayTime" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed" FontSize="20"></TextBlock>
                 </Grid>
                 <Grid Grid.Row="2" Margin="5">
                     <Button x:Name="startBtn" Click="StartBtn_Click" HorizontalAlignment="Center" Visibility="Visible">▶️ Start</Button>
                     <Button x:Name="stopBtn" Click="StopBtn_Click" HorizontalAlignment="Center" Visibility="Collapsed">⏹️ Stop</Button>
                 </Grid>
                 <Grid Grid.Row="3" Margin="5">
-                    <TextBlock x:Name="displayTime" HorizontalAlignment="Center" Visibility="Collapsed" FontSize="20"></TextBlock>
+                    
                 </Grid>
             </Grid>
         </NavigationView>
