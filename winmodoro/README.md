@@ -3,11 +3,11 @@
 ## Todos
 
 - [ ] Break timer implementation
-- [ ] Fullscreen when on break
+- [x] Fullscreen when on break
 - [ ] Button to disable fullscreen break
 - [ ] Add sounds TBD
 - [ ] Theme switcher (light/dark)
-- [ ] Personalized settings
+- [ ] Personalized settings TDB
 
 ## Notes
 ### Conditions
