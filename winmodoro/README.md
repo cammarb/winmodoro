@@ -1,4 +1,4 @@
-# Winmodoro
+# Winmodoro notes and todos
 
 ## Todos
 
